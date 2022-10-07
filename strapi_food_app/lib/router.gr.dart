@@ -36,6 +36,7 @@ class AppRouter extends _i4.RootStackRouter {
         routeData: routeData,
         child: _i2.DetailsPage(
           id: args.id,
+          initialPhotoUrl: args.initialPhotoUrl,
           key: args.key,
         ),
       );
@@ -81,13 +82,15 @@ class HomeRoute extends _i4.PageRouteInfo<void> {
 /// [_i2.DetailsPage]
 class DetailsRoute extends _i4.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
-    required String id,
+    required int id,
+    String? initialPhotoUrl,
     _i5.Key? key,
   }) : super(
           DetailsRoute.name,
           path: '/details-page',
           args: DetailsRouteArgs(
             id: id,
+            initialPhotoUrl: initialPhotoUrl,
             key: key,
           ),
         );
@@ -98,16 +101,19 @@ class DetailsRoute extends _i4.PageRouteInfo<DetailsRouteArgs> {
 class DetailsRouteArgs {
   const DetailsRouteArgs({
     required this.id,
+    this.initialPhotoUrl,
     this.key,
   });
 
-  final String id;
+  final int id;
+
+  final String? initialPhotoUrl;
 
   final _i5.Key? key;
 
   @override
   String toString() {
-    return 'DetailsRouteArgs{id: $id, key: $key}';
+    return 'DetailsRouteArgs{id: $id, initialPhotoUrl: $initialPhotoUrl, key: $key}';
   }
 }
 

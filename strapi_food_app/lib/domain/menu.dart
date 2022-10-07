@@ -7,10 +7,15 @@ class MenuItemData {
   PhotoUrl? photo;
   double price;
 
+  String? description;
+  List? details;
+
   MenuItemData({
     required this.id,
     required this.name,
     required this.price,
+    this.description,
+    this.details,
     this.photo,
   });
 
@@ -28,6 +33,8 @@ class MenuItemData {
           id: d["id"],
           name: attrs["name"],
           price: price,
+          description: attrs["description"],
+          details: attrs["details"],
         );
 
         var photo = attrs["photo"]?["data"];

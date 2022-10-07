@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 const double kSmallPadding = 7.0;
 const double kDefaultPadding = 10.0;
+const double kLargePadding = 20.0;
 
 final kDefaultBorderRadius = BorderRadius.circular(10);
 
 /// You can get a similar Strapi hosting on [dollarbackend.com](https://dollarbackend.com) !
-const kServerUrl = "https://strapi-flutter-demo.orena.io";
+const kServerUrl = "http://strapi-flutter-demo.orena.io";
 
 const kApiToken =
-    "3c30a08ecba57f881bd54803c5e17d3bfd0806f882e94f96e2a8104db0c4c42799c0149e26a1ccfbe5bef0a9c2a04b5c8e6e94a40b2b9e35a6ab973736d72a7c8527cd54d0ddf9ffa97c02c0b1607789a4c4a693d61b3c1e4087422b40ceb1beb9905f1cfb97da6ebd886132a297e1c210fa12c4dfaca9e71612c41e40ff30f4";
+    "7cb272916c8aaf0f16c5d00826a0e11ebc1e364bcaee56d08ea9e2b67fafa218ecef46ef127155013b4b36dede5c07021c8100fbb2ff503e59c6c653bc1c41d1d5d06970a8c9f745f5c675fc30de11eea0ae7ab03a49f45289f7f31027541ed6c85b6389882d05b2e868508c0a7735bf6ac4e387b64c754b82a70571e9bdef46";

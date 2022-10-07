@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:auto_route/auto_route.dart';
+
 import '../domain/menu.dart';
 import '../constants.dart';
+import '../router.gr.dart';
+import 'menu_image.dart';
 
 final kGradient = LinearGradient(
   colors: [
@@ -74,48 +78,56 @@ class ItemWidget extends StatelessWidget {
           end: Alignment.bottomCenter,
         ).createShader(bounds),
         blendMode: BlendMode.darken,
-        child: Image.network(
-          photoUrl,
-          fit: BoxFit.cover,
+        child: MenuImage(
+          itemId: menuItem.id,
+          photoUrl: photoUrl,
         ),
       );
     }
 
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: kDefaultBorderRadius,
-        gradient: kGradient,
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          SizedBox.expand(child: gradientOverlay),
-          SizedBox.expand(
-            child: Padding(
-              padding: const EdgeInsets.all(kDefaultPadding),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    menuItem.name,
-                    style: theme.textTheme.headlineSmall
-                        ?.copyWith(color: Colors.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: kSmallPadding),
-                  Text(
-                    "\$ ${menuItem.price}  ",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+    return GestureDetector(
+      onTap: () {
+        AutoRouter.of(context).push(DetailsRoute(
+          id: menuItem.id,
+          initialPhotoUrl: photoUrl,
+        ));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: kDefaultBorderRadius,
+          gradient: kGradient,
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          children: [
+            SizedBox.expand(child: gradientOverlay),
+            SizedBox.expand(
+              child: Padding(
+                padding: const EdgeInsets.all(kDefaultPadding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      menuItem.name,
+                      style: theme.textTheme.headlineSmall
+                          ?.copyWith(color: Colors.white),
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
+                    const SizedBox(height: kSmallPadding),
+                    Text(
+                      "\$ ${menuItem.price}  ",
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
