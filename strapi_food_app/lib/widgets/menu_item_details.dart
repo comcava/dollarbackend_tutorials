@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:strapi_food_app/constants.dart';
-import 'package:strapi_food_app/domain/menu.dart';
-import 'package:strapi_food_app/widgets/menu_image.dart';
+
+import '../constants.dart';
+import '../domain/menu.dart';
+import '../widgets/menu_image.dart';
 
 class ItemDetails extends StatelessWidget {
   final MenuItemData item;

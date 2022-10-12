@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:strapi_food_app/constants.dart';
+
+import '../constants.dart';
 
 class MenuItemData {
   int id;

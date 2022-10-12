@@ -6,6 +6,9 @@ const double kLargePadding = 20.0;
 
 final kDefaultBorderRadius = BorderRadius.circular(10);
 
+const kOrderButtonBgColor = Colors.cyan;
+const kOrderButtonFgColor = Colors.white;
+
 /// You can get a similar Strapi hosting on [dollarbackend.com](https://dollarbackend.com) !
 const kServerUrl = "http://strapi-flutter-demo.orena.io";
 

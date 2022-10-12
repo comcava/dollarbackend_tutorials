@@ -1,5 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:strapi_food_app/repositories/menu_items.dart';
+
+import '../constants.dart';
+import '../repositories/menu_items.dart';
+import '../router.gr.dart';
 
 import '../widgets/menu_grid.dart';
 import '../domain/menu.dart';
@@ -39,6 +43,15 @@ class _HomePageState extends State<HomePage> {
       body: RefreshIndicator(
         onRefresh: _fetchMenuItems,
         child: MenuGrid(items: _items),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AutoRouter.of(context).push(const OrderRoute());
+        },
+        tooltip: "Order",
+        backgroundColor: kOrderButtonBgColor,
+        foregroundColor: kOrderButtonFgColor,
+        child: const Icon(Icons.shopping_cart),
       ),
     );
   }

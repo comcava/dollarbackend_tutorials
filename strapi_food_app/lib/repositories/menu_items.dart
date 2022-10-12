@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:strapi_food_app/constants.dart';
 
+import '../constants.dart';
 import '../domain/menu.dart';
 
 class MenuItemsRepository {
@@ -45,5 +45,38 @@ class MenuItemsRepository {
     }
 
     return null;
+  }
+
+  static Future<void> createOrder({
+    required String name,
+    required String phone,
+    required List<MenuItemData> menuItems,
+  }) async {
+    var data = menuItems
+        .map(
+          (i) => {
+            "id": i.id,
+            "name": i.name,
+            "price": i.price,
+          },
+        )
+        .toList();
+
+    var dio = Dio();
+
+    await dio.post(
+      '$kServerUrl/api/orders',
+      data: {
+        "data": {
+          "name": name,
+          "phone": phone,
+          "data": data,
+        }
+      },
+      options: Options(
+        headers: {'Authorization': 'Bearer $kApiToken'},
+        contentType: "application/json",
+      ),
+    );
   }
 }

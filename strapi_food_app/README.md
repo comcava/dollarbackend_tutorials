@@ -1,16 +1,10 @@
 # strapi_food_app
 
-A new Flutter project.
+This is a repository for "Make a food delivery app with Strapi + Flutter" tutorials.
 
-## Getting Started
+Read all tutorials in our blog:
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Part 1](https://dollarbackend.com/blog/p/7) (project setup, home screen with all menu items)
+- [Part 2](https://dollarbackend.com/blog/p/8) ([auto_route](https://pub.dev/packages/auto_route) setup, single item details screen)
+- [Part 3](https://dollarbackend.com/blog/p/10) (keeping a cart using a singleton, order screen)
+- [How to make a Hero animation](https://dollarbackend.com/blog/p/9)

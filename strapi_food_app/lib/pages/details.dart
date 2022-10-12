@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:strapi_food_app/repositories/menu_items.dart';
-import 'package:strapi_food_app/widgets/menu_item_details.dart';
+
+import '../repositories/menu_items.dart';
+import '../repositories/cart.dart';
+import '../widgets/menu_item_details.dart';
 
 import '../domain/menu.dart';
 
@@ -21,6 +23,7 @@ class DetailsPage extends StatefulWidget {
 
 class _DetailsPageState extends State<DetailsPage> {
   MenuItemData? _item;
+  final _cartRepository = CartRepository();
 
   @override
   void initState() {
@@ -66,6 +69,16 @@ class _DetailsPageState extends State<DetailsPage> {
         title: Text("${item.name} details"),
       ),
       body: ItemDetails(item: item),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          var i = _item;
+          if (i != null) {
+            _cartRepository.add(i);
+          }
+        },
+        tooltip: "Add to cart",
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
